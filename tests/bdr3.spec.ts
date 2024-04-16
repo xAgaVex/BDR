@@ -20,11 +20,16 @@ async function addToCart(page: Page, shoesSize: string, shoesColor ) {
     await page.getByRole('button', { name: 'ADD TO CART' }).click();
 }
 
-test('Dodanie dziecięcych butów do koszyka', async ({ page }) => {
+test('Dodanie damskich butów do koszyka', async ({ page }) => {
+  await goToEvershop(page)
+  await goToMenu(page, 'Shop women', 'Women' )
+  await goToShoesDetails(page, 'Alphaedge 4d reflective shoes')
+  await addToCart(page, 'XL', 'White') 
+});
+
+test('Dodanie męskich butów do koszyka', async ({ page }) => {
     await goToEvershop(page)
-    await goToMenu(page, 'Shop kids', 'Kid' )
-    await goToShoesDetails(page, 'Swift run x shoes')
-    await addToCart(page, 'S', 'Pink') 
-  });
-  
-  //..
+    await goToMenu(page, 'Shop men', 'Men' )
+    await goToShoesDetails(page, 'Hacked fashion chuck taylor')
+    await addToCart(page, 'S', 'Brown') 
+});
