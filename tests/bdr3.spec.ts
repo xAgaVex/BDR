@@ -27,3 +27,4 @@ test('Dodanie dziecięcych butów do koszyka', async ({ page }) => {
     await addToCart(page, 'S', 'Pink') 
   });
   
+  //..
